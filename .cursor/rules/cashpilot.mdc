@@ -1,0 +1,5 @@
+---
+description: CashPilot project rules
+alwaysApply: true
+---
+Follow every rule in CLAUDE.md at the project root. It is the single source of truth for both Cursor and Claude Code.

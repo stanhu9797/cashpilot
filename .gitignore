@@ -1,0 +1,28 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Local data (never commit real financial data)
+backend/cashpilot.db
+backend/uploads/
+backend/tests/test.db
+backend/tests/test_uploads/
+backend/eval/receipts/*
+!backend/eval/receipts/README.md
+backend/eval/expected.json
+backend/eval/results/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+.DS_Store
+
+# Lambda packaging output
+build/

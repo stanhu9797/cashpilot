@@ -1,0 +1,29 @@
+# Production-like local run: PostgreSQL + the app container.
+#   docker compose up --build      then open http://localhost:8080
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: cashpilot
+      POSTGRES_PASSWORD: cashpilot
+      POSTGRES_DB: cashpilot
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cashpilot"]
+      interval: 3s
+      retries: 10
+
+  app:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://cashpilot:cashpilot@db:5432/cashpilot
+      CORS_ORIGINS: http://localhost:8080
+    ports: ["8080:8080"]
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

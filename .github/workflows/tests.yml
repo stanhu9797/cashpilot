@@ -1,0 +1,30 @@
+# Runs the backend test suite on every push and pull request.
+# Deployment is handled by AWS Amplify (frontend, auto-builds on push) and deploy/backend-lambda.sh (API).
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run backend tests
+        working-directory: backend
+        run: |
+          pip install -r requirements.txt
+          python -m pytest -q
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build frontend
+        working-directory: frontend
+        run: npm ci && npm run build

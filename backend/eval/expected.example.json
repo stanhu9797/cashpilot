@@ -1,0 +1,5 @@
+{
+  "joes-coffee-sept.jpg": { "merchant": "Joe's Coffee", "date": "2026-09-14", "total": 8.75 },
+  "staples-printer-ink.jpg": { "merchant": "Staples", "date": "2026-09-02", "total": 64.19 },
+  "delta-invoice.pdf": { "merchant": "Delta Air Lines", "date": "2026-08-21", "total": 412.60 }
+}

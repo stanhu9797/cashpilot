@@ -1,0 +1,10 @@
+# Runtime-only dependencies for AWS Lambda (boto3 is already built into the Lambda runtime)
+fastapi>=0.115.6
+sqlalchemy>=2.0.36
+pydantic>=2.10.3
+pydantic-settings>=2.6.1
+python-multipart>=0.0.19
+pyjwt>=2.10.1
+bcrypt>=4.2.1,<5
+anthropic>=0.40.0
+mangum>=0.19.0

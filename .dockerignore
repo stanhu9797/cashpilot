@@ -1,0 +1,11 @@
+**/node_modules
+**/dist
+**/__pycache__
+**/.pytest_cache
+backend/cashpilot.db
+backend/uploads
+backend/tests/test.db
+backend/eval/receipts/*
+backend/eval/results
+.env
+.git
